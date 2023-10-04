@@ -5,7 +5,7 @@
 ## Alumno 
 Gonzalo Carreno
 
-Enunciado del TP: (leer el archivo Readme.md)
+Enunciado del TP: No disponible. Leer Descripcion del Trabajo
 
 ## Descripcion del trabajo:
 El proyecto es un sistema de IoT compuesto por un sistema robotico de exploracion ambiental que envia los datos sensados en tiempo real a un sistma backend de procesamiento big data en la nube que los procesa y entrega informacion de valor.
