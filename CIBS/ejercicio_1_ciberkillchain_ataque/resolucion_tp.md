@@ -24,8 +24,11 @@ Buscando vulnerabilidades en las herramientas tecnologicas utilizadas:
 - https://www.electropages.com/blog/2022/02/researchers-find-mqtt-have-33-vulnerabilities
 
 ### Weaponization
+Si me logro acercar al alcance de la red edge podria ver si la comunicaion con el servicio backend esta siendo cifrada. En caso de que no lo este podria sniffear paquetes y explorar la posibilidad de hacer man-in-the-middle.
 
 ### Delivery
+Me acerco con un vehiculo hasta el alcance de la red Wifi con el equipamiento necesario para poder conectarme a la red y sniffear paquetes.
+Para la conexcion con la red Wifi sera necesario crackear la autenticacion WPA2 o conseguir mediante algun otro metodo (ingenieria humana por ejemplo) las credenciales.
 
 ### Exploit
 
