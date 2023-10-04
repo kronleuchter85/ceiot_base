@@ -17,14 +17,14 @@ El stack tecnologico del sistema, del lado backend, se compone de un endpoint MQ
 No hay objetivos de ganancia economica en el ataque. El objetivo en una primera instancia es denegacion de servicio. Cualquier tecnica que pueda comprometer la disponibilidad y funcionamiento del sistema sera valida. Por ejemplo un ataque de man-in-the-middle filtrando y reenviando datos que puedan comprometer el funcionamiento del sistema. Adicionalmente se aprecia el almacenamiento de los datos originales con el fin de explotar cualquier otro valor que se pueda extraer del ataque.
 
 ### Reconnaissance
-Se reconocen los puertos expuetos por el sistema backend. Se averigua la arquitectura de hardware utilizada en el componente edge. Se reconoce el proveedor cloud utilizado.
+Se reconocen los puertos expuetos por el sistema backend. Se averigua la arquitectura de hardware utilizada en el componente edge. Se reconoce el proveedor cloud utilizado.Se realiza discovery (https://attack.mitre.org/tactics/TA0007/).
 Buscando vulnerabilidades en las herramientas tecnologicas utilizadas:
 - https://www.cvedetails.com/vulnerability-list/vendor_id-12113/Nodejs.html
 - https://www.cvedetails.com/vulnerability-list/vendor_id-10410/product_id-45945/Eclipse-Mosquitto.html
 - https://www.electropages.com/blog/2022/02/researchers-find-mqtt-have-33-vulnerabilities
 
 ### Weaponization
-Si me logro acercar al alcance de la red edge podria ver si la comunicaion con el servicio backend esta siendo cifrada. En caso de que no lo este podria sniffear paquetes y explorar la posibilidad de hacer man-in-the-middle.
+Si me logro acercar al alcance de la red edge y logro acceso a la misma, podria ver si la comunicaion con el servicio backend esta siendo cifrada. En caso de que no lo este podria sniffear paquetes y explorar la posibilidad de hacer adversary-in-the-middle (https://attack.mitre.org/techniques/T1557/)
 
 ### Delivery
 Me acerco con un vehiculo hasta el alcance de la red Wifi con el equipamiento necesario para poder conectarme a la red y sniffear paquetes.
