@@ -14,18 +14,18 @@ El stack tecnologico del sistema, del lado backend, se compone de un endpoint MQ
 ## Resolucion
 
 ### Objetivo:
-No hay objetivos de ganancia economica en el ataque. El objetivo en una primera instancia es denegacion de servicio. Cualquier tecnica que pueda comprometer la disponibilidad y funcionamiento del sistema sera valida. Por ejemplo un ataque de man-in-the-middle filtrando y reenviando datos que puedan comprometer el funcionamiento del sistema. Adicionalmente se aprecia el almacenamiento de los datos originales con el fin de explotar cualquier otro valor que se pueda extraer del ataque.
+No hay objetivos de ganancia economica en el ataque. El objetivo en una primera instancia es denegacion de servicio. Cualquier tecnica que pueda comprometer la disponibilidad y funcionamiento del sistema sera valida. Adicionalmente se aprecia el almacenamiento de los datos originales con el fin de explotar cualquier otro valor que se pueda extraer del ataque.
 Para el backend se considera una alternativa de denegacion de servicio distribuida.
 
 ### Reconnaissance
-Se reconocen los puertos expuetos por el sistema backend. Se averigua la arquitectura de hardware utilizada en el componente edge. Se reconoce el proveedor cloud utilizado.Se realiza discovery (https://attack.mitre.org/tactics/TA0007/ y https://attack.mitre.org/techniques/T1595/002/).
+Se reconocen los puertos expuetos por el sistema backend. Se averigua la arquitectura de hardware utilizada en el componente edge. Se reconoce el proveedor cloud utilizado y servicios accedidos.Se realiza discovery (https://attack.mitre.org/tactics/TA0007/ y https://attack.mitre.org/techniques/T1595/002/).
 Buscando vulnerabilidades en las herramientas tecnologicas utilizadas:
 - https://www.cvedetails.com/vulnerability-list/vendor_id-12113/Nodejs.html
 - https://www.cvedetails.com/vulnerability-list/vendor_id-10410/product_id-45945/Eclipse-Mosquitto.html
 - https://www.electropages.com/blog/2022/02/researchers-find-mqtt-have-33-vulnerabilities
 
 ### Weaponization
-Si me logro acercar al alcance de la red edge y logro acceso a la misma, podria ver si la comunicaion con el servicio backend esta siendo cifrada. En caso de que no lo este podria sniffear paquetes y explorar la posibilidad de hacer adversary-in-the-middle (https://attack.mitre.org/techniques/T1557/). Ademas si logro acceso a la red podria cambiar la configuracion para denegar el servicio en la parte edge.
+Si me logro acercar al alcance de la red edge y logro acceso a la misma, podria ver si la comunicaion con el servicio backend esta siendo cifrada. En caso de que no lo este podria sniffear paquetes (https://attack.mitre.org/techniques/T1040/) y explorar la posibilidad de hacer adversary-in-the-middle (https://attack.mitre.org/techniques/T1557/). Ademas si logro acceso a la red podria cambiar la configuracion para denegar el servicio en la parte edge. 
 
 ### Delivery
 Me acerco con un vehiculo hasta el alcance de la red Wifi con el equipamiento necesario para poder conectarme a la red y sniffear paquetes.
@@ -35,9 +35,10 @@ Para la conexcion con la red Wifi sera necesario crackear la autenticacion WPA2 
 Una vez se ha realizado ingeneria social o el ataque de fuerza bruta se cuenta con las credenciales de la red.
 
 ### Installation
-Con las credenciales de la red se conecta el dispositivo de captura de trafico y se comienza a sniffear los paquetes. En caso de estar cifrado se procede a escanear los puertos abiertos del dispositivo emisor de eventos.
+Con las credenciales de la red se conecta el dispositivo de captura de trafico y se comienza a sniffear los paquetes. En caso de no estar cifrado se pueden apreciar todos los campos de los paquetes, la informacion que contiene. En caso de estar cifrado se procede a escanear los puertos abiertos del dispositivo emisor de eventos y del servicio cloud accedido.
 
 ### Command & Control
+Conociendo el servicio cloud accedido se puede ejecutar un ataque de DDoS.
 
 ### Actions on Objectives
 
