@@ -37,7 +37,7 @@ Se cambia la configuracion del sistema frontend para apuntar a un falso backend 
 Se configura en el falso backend el acceso al endpoint del verdadero backend.
 
 ### Installation
-
+N/A
 
 ### Command & Control
 Se lanza el script de denegacion distribuida de servicio desde multiples nodos por toda la region donde el servicio esta disponible generando muchas peticiones por segundo. Ademas se lanza el falso backend para enviar data adulterada al verdadero backend y almacenando la data verdadera para ser analizada luego.
