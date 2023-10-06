@@ -25,20 +25,22 @@ Buscando vulnerabilidades en las herramientas tecnologicas utilizadas:
 - https://www.electropages.com/blog/2022/02/researchers-find-mqtt-have-33-vulnerabilities
 
 ### Weaponization
-Si me logro acercar al alcance de la red edge y logro acceso a la misma, podria ver si la comunicaion con el servicio backend esta siendo cifrada. En caso de que no lo este podria sniffear paquetes (https://attack.mitre.org/techniques/T1040/) y explorar la posibilidad de hacer adversary-in-the-middle (https://attack.mitre.org/techniques/T1557/). Ademas si logro acceso a la red podria cambiar la configuracion para denegar el servicio en la parte edge. 
+Si me logro acercar al alcance de la red edge y logro acceso a la misma, puedo ver si la comunicaion con el servicio backend esta siendo cifrada. Si no esta cifrada puedo sniffear los paquetes (https://attack.mitre.org/techniques/T1040/). Si logro acceso a la configuracion del sistema puedo hacer adversary-in-the-middle con el backend (https://attack.mitre.org/techniques/T1557/). Ademas conociendo los endpoints del backend utilizado puedo realizar un ataque de denegacion distribuida de servicio a esos endpoints.  
 
 ### Delivery
-Me acerco con un vehiculo hasta el alcance de la red Wifi con el equipamiento necesario para poder conectarme a la red y sniffear paquetes.
-Para la conexcion con la red Wifi sera necesario crackear la autenticacion WPA2 (por ejemplo usando fuerza bruta https://attack.mitre.org/techniques/T1110/) o conseguir mediante algun otro metodo (ingenieria humana por ejemplo) las credenciales.
+Me acerco con un vehiculo hasta el alcance de la red Wifi con el equipamiento necesario para poder conectarme a la red y sniffear paquetes en caso de que la comunicacion no este cifrada.
+Mediante ingenieria social obtuve el SSID y credenciales de red. Como tenia activado DHCP me conecto a la misma. Tambien obtuve por el mismo metodo el usuario ssh de uno de los hosts y puedo acceder a la configuracion del frontend desde donde se invoca el backend. Ademas, teniendo acceso al host, se accede a sus certificados para poder establecer la misma comunicacion con el backend.
+Por separado de una forma orquestada, se prepara un script para realizar multiples peticiones a los endpoints del servicio backend y se setea todo para ser lanzado de forma distribuida.
 
 ### Exploit
-Una vez se ha realizado ingeneria social o el ataque de fuerza bruta se cuenta con las credenciales de la red.
+Se cambia la configuracion del sistema frontend para apuntar a un falso backend usando el mismo protocolo y certificados pero que recibe los datos, los almacena, cambia y envia al backend adulterados. 
+Se configura en el falso backend el acceso al endpoint del verdadero backend.
 
 ### Installation
-Con las credenciales de la red se conecta el dispositivo de captura de trafico y se comienza a sniffear los paquetes. En caso de no estar cifrado se pueden apreciar todos los campos de los paquetes, la informacion que contiene. En caso de estar cifrado se procede a escanear los puertos abiertos del dispositivo emisor de eventos y del servicio cloud accedido.
+
 
 ### Command & Control
-Conociendo el servicio cloud accedido se puede ejecutar un ataque de DDoS.
+Se lanza el script de denegacion distribuida de servicio desde multiples nodos por toda la region donde el servicio esta disponible generando muchas peticiones por segundo. Ademas se lanza el falso backend para enviar data adulterada al verdadero backend y almacenando la data verdadera para ser analizada luego.
 
 ### Actions on Objectives
 
