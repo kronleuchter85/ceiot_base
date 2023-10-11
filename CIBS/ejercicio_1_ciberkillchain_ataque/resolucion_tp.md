@@ -28,18 +28,17 @@ Si me logro acercar al alcance de la red edge y mediante ingenieria social consi
 
 ### Delivery
 Me acerco con un vehiculo hasta el alcance de la red Wifi con el equipamiento necesario para poder conectarme a la red y sniffear paquetes.
-Con el SSID y credenciales de red me conecto a la misma. Con el usuario ssh de uno de los hosts y accedo a la configuracion del frontend desde donde se invoca el backend. 
+
 Por separado de una forma orquestada, se prepara un script para realizar multiples peticiones a los endpoints del servicio backend y se setea todo para ser lanzado de forma distribuida.
 
 ### Exploit
-Se obtuvieron el SSID, credenciales de red y usuario de host frontend por ingenieria social, y se conecto a la red dado que DHCP estab habilitado.
+Con el SSID y credenciales de red me conecto a la misma. Con el usuario ssh de uno de los hosts y accedo a la configuracion del frontend desde donde se invoca el backend. 
 
 ### Installation
-Se cambia la configuracion del sistema frontend para apuntar a un falso backend usando el mismo protocolo y certificados pero que recibe los datos, los almacena, cambia y envia al backend adulterados. 
-Se configura en el falso backend el acceso al endpoint del verdadero backend.
+N/A - no se instala nada
 
 ### Command & Control
-N/A - No se controla ni se comanda nada.
+Se cambia la configuracion del sistema frontend para apuntar a un falso backend usando el mismo protocolo y certificados pero que recibe los datos, los almacena, cambia y envia al backend adulterados. Se configura en el falso backend el acceso al endpoint del verdadero backend.
 
 ### Actions on Objectives
 Se lanza el script de denegacion distribuida de servicio desde multiples nodos por toda la region donde el servicio esta disponible generando muchas peticiones por segundo. 
