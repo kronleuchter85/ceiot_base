@@ -25,13 +25,18 @@ La red edge esta configurada aceptando IPs estaticas, DHCP desabilitado y se esp
 Para proteger el backend se activa el servicio AWS Shield (https://aws.amazon.com/shield/) para permitir el escalamiento horizontal de los balanceadores de carga cuando se detecta un DDoS y de esta forma absorber las solicitudes y bloquear IPs de origen.
 
 ### Exploit
-Para el backend se activa el servicio AWS Secrets Manager y se implementa la rotacion de secretos para reducir el tiempo de vida de API keys y demas secretos y facilitar la rotacion de los mismas, con reducir el tiempo en el cual -en caso de ser filtradas al atacante- puedan ser utilizadas. Ademas se implementa MFA para los principals que pueden configurar el sistema, generando una barrera mas para una autenticacion/autorizacion no permitida, como resultado de filtracion de credenciales. Se activan los servicios AWS IoT Device Defender (https://aws.amazon.com/iot-device-defender/) y AWS IoT Device Manager (https://aws.amazon.com/iot-device-management) con el fin de mejorar la gestion y reducir los puntos de ataques en la parte edge.
+Para evitar las vulnerabilidades en el backend 
+- se activa el servicio AWS Secrets Manager
+- se implementa la rotacion de secretos para reducir el tiempo de vida de API keys y demas secretos y facilitar la rotacion de los mismas, con reducir el tiempo en el cual -en caso de ser filtradas al atacante- puedan ser utilizadas.
+- se implementa MFA para los principals que pueden configurar el sistema, generando una barrera mas para una autenticacion/autorizacion no permitida, como resultado de filtracion de credenciales.
+- se activan los servicios AWS IoT Device Defender (https://aws.amazon.com/iot-device-defender/) y AWS IoT Device Manager (https://aws.amazon.com/iot-device-management) con el fin de mejorar la gestion y reducir los puntos de ataques en la parte edge.
 
 ### Instalation
-N/A (Nada para agregar sobre el sistema de defensa sobre este punto.)
+N/A - no se instala nada en el ataque
 
 ### Command and Control
-N/A (Nada para agregar sobre el sistema de defensa sobre este punto.)
+Se evita el control del servidor al evitar las vulnerabilidades mencionadas que permitieron el acceso al mismo.
 
 ### Actions on Objectives
-N/A (Nada para agregar sobre el sistema de defensa sobre este punto.)
+El sistema de defenza compuesto por AWS Shield y los ELBs escala horizontalmente absorbiendo las peticiones, bloqueando las IPs desde donde provienen las peticiones y evitando asi la denegacion de servicio.
+Ademas no se detectaron accesos no autorizados al sistema ni interrupcion del servicio en ningun punto de la arquitectura.
