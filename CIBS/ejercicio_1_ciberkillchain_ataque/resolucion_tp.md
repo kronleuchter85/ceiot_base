@@ -18,8 +18,7 @@ El objetivo del ataque es evitar que el sistema de IoT pueda operar durante un d
 Para el backend se considera una alternativa de denegacion de servicio distribuida.
 
 ### Reconnaissance
-Se reconocen los puertos expuetos por el sistema backend. Se averigua la arquitectura de hardware utilizada en el componente edge. Se reconoce el proveedor cloud utilizado, servicios y endpoints accedidos. Se realiza discovery (https://attack.mitre.org/tactics/TA0007/ y https://attack.mitre.org/techniques/T1595/002/).
-Buscando vulnerabilidades en las herramientas tecnologicas utilizadas:
+Se reconocen los puertos expuetos por el sistema backend. Se averigua la arquitectura de hardware utilizada en el componente edge. Se reconoce el proveedor cloud utilizado, servicios y endpoints accedidos. Se realiza discovery buscando vulnerabilidades en las herramientas tecnologicas utilizadas:
 - https://www.cvedetails.com/vulnerability-list/vendor_id-12113/Nodejs.html
 - https://www.cvedetails.com/vulnerability-list/vendor_id-10410/product_id-45945/Eclipse-Mosquitto.html
 - https://www.electropages.com/blog/2022/02/researchers-find-mqtt-have-33-vulnerabilities
