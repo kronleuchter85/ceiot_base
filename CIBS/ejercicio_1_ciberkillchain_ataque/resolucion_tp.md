@@ -14,7 +14,7 @@ El stack tecnologico del sistema, del lado backend, se compone de un endpoint MQ
 ## Resolucion
 
 ### Objetivo:
-No hay objetivos de ganancia economica en el ataque. El objetivo en una primera instancia es denegacion de servicio. Cualquier tecnica que pueda comprometer la disponibilidad y funcionamiento del sistema sera valida. Adicionalmente se aprecia el almacenamiento de los datos originales con el fin de explotar cualquier otro valor que se pueda extraer del ataque.
+El objetivo del ataque es evitar que el sistema de IoT pueda operar durante un determinado periodo para generarle perdidas a las empresas mineras que lo utilizan, por lo tanto se utilizara como medio de ataque una denegacion de servicio. Cualquier tecnica que pueda comprometer la disponibilidad y funcionamiento del sistema sera valida. Adicionalmente se aprecia el almacenamiento de los datos originales con el fin de explotar cualquier otro valor que se pueda extraer del ataque.
 Para el backend se considera una alternativa de denegacion de servicio distribuida.
 
 ### Reconnaissance
